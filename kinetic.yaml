@@ -1,0 +1,53 @@
+###############################################################################
+# Default Rosinstall Index
+###############################################################################
+#
+# Why
+# ===
+#
+# We have rosinstalls everywhere...easy to forget/lose track of them.
+#
+# Quick Start
+# ===========
+#
+# At it's simplest, this is just a key to a url where a rosinstall can be
+# found. You can then install the sources into a catkin environment.
+#
+# e.g. for the ecl key-value pair
+#
+#     ecl: 'https://raw.github.com/stonier/ecl_core/indigo/ecl.rosinstall'
+#
+# e.g. to download and compile ecl from key-value pair
+#
+#     ckx ws ~/ecl ecl
+#     cd ~/ecl
+#     ckx config .
+#     ckx build
+#
+# Mixins
+# ======
+#
+# When you use a key-value pair multiply, combine them in a list to form new workspaces.
+# Downloading and compiling works in the same way.
+#
+# e.g. arm_bootstrap:
+#
+#    arm_bootstrap: [_catkin, _drone_bootstrap, yaml_cpp, respawn]
+#
+# Adding Index Key-Value Pairs
+# ============================
+#
+# Just make a pull request.
+#
+###############################################################################
+
+# rosinstalls indexed multiply below
+_catkin: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/catkin.rosinstall'
+
+# ros core
+catkin: [_catkin]
+ecl: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/ecl.rosinstall'
+ecl_tools: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/ecl_tools.rosinstall'
+ecl_lite: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/ecl_lite.rosinstall'
+yaml_cpp: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/yaml_cpp.rosinstall'
+
