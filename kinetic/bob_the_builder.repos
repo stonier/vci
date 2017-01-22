@@ -22,12 +22,16 @@ repositories:
     type: git
     url: https://github.com/stonier/groot_mediterranean_themes.git
     version: devel
+  pax_repos_index:
+    type: git
+    url: https://github.com/stonier/pax_repos_index.git
+    version: devel
   pax_rosinstall_index:
     type: git
     url: https://github.com/stonier/pax_rosinstall_index.git
     version: devel
-  vcs_find:
+  vcs_extras:
     type: git
-    url: https://github.com/stonier/vcs_find.git
+    url: https://github.com/stonier/vcs_extras.git
     version: devel
 
