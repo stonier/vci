@@ -1,0 +1,24 @@
+#
+# ECL is an open source, cross-platform set of c++ libraries (~ c++ version of posix).
+#
+repositories:
+  ecl_tools:
+    type: git
+    url: https://github.com/stonier/ecl_tools.git
+    version: devel
+  ecl_lite:
+    type: git
+    url: https://github.com/stonier/ecl_lite.git
+    version: devel
+  ecl_core:
+    type: git
+    url: https://github.com/stonier/ecl_core.git
+    version: devel
+  ecl_navigation:
+    type: git
+    url: https://github.com/stonier/ecl_navigation.git
+    version: devel
+  ecl_manipulation:
+    type: git
+    url: https://github.com/stonier/ecl_manipulation.git
+    version: devel

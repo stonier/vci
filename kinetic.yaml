@@ -5,17 +5,17 @@
 # Why
 # ===
 #
-# We have rosinstalls everywhere...easy to forget/lose track of them.
+# We have repository files everywhere...easy to forget/lose track of them.
 #
 # Quick Start
 # ===========
 #
-# At it's simplest, this is just a key to a url where a rosinstall can be
+# At it's simplest, this is just a key to a url where a repos can be
 # found. You can then install the sources into a catkin environment.
 #
 # e.g. for the ecl key-value pair
 #
-#     ecl: 'https://raw.github.com/stonier/ecl_core/indigo/ecl.rosinstall'
+#     ecl: 'https://raw.github.com/stonier/ecl_core/indigo/ecl.repos'
 #
 # e.g. to download and compile ecl from key-value pair
 #
@@ -41,13 +41,13 @@
 #
 ###############################################################################
 
-# rosinstalls indexed multiply below
-_catkin: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/catkin.rosinstall'
+# reposs indexed multiply below
+_catkin: 'https://raw.github.com/stonier/pax_repos_index/kinetic/catkin.repos'
 
 # ros core
 catkin: [_catkin]
-ecl: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/ecl.rosinstall'
-ecl_tools: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/ecl_tools.rosinstall'
-ecl_lite: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/ecl_lite.rosinstall'
-yaml_cpp: 'https://raw.github.com/stonier/ckx_tools/rosinstalls/kinetic/yaml_cpp.rosinstall'
+ecl: 'https://raw.github.com/stonier/pax_rosinstall_index/kinetic/ecl.repos'
+ecl_tools: 'https://raw.github.com/stonier/pax_rosinstall_index/kinetic/ecl_tools.repos'
+ecl_lite: 'https://raw.github.com/stonier/pax_rosinstall_index/kinetic/ecl_lite.repos'
+yaml_cpp: 'https://raw.github.com/stonier/pax_rosinstall_index/kinetic/yaml_cpp.repos'
 

@@ -1,0 +1,8 @@
+# This is for cross-compiled installations.
+
+repositories:
+  yaml_cpp:
+    type: git
+    url: https://github.com/stonier/yaml_cpp_0_3.git
+    version: devel
+

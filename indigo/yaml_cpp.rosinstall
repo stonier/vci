@@ -1,2 +1,0 @@
-# This is for cross-compiled installations.
-- git: {local-name: yaml_cpp, version: devel, uri: 'https://github.com/stonier/yaml_cpp_0_3.git'}

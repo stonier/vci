@@ -1,0 +1,17 @@
+#
+# Installs catkin and gtest for use with cross compiled stacks.
+#
+repositories:
+  catkin:
+    type: git
+    url: https://github.com/ros/catkin.git
+    version: kinetic-devel
+  cmake_modules:
+    type: git
+    url: https://github.com/ros/cmake_modules.git
+    version: 0.4-devel
+  gtest:
+    type: git
+    url: https://github.com/ros/cmake_modules.git
+    version: release-1.8.0
+
