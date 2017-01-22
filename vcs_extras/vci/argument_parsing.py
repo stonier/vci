@@ -16,7 +16,8 @@ Arg parse construction.
 import argparse
 
 from . import find
-from . import index
+from . import config
+from . import list
 
 ##############################################################################
 # Methods
@@ -30,5 +31,6 @@ def get_parser():
     subparsers = parser.add_subparsers(title='commands',
                                        help='valid commands for vci interactions')
     find.add_subparser(subparsers)
-    index.add_subparser(subparsers)
+    config.add_subparser(subparsers)
+    list.add_subparser(subparsers)
     return parser
