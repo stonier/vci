@@ -1,3 +1,3 @@
-## Rosinstall Index
+## VCS Repos Index
 
-For use with ckx_tools or simply direct to the rosinstall urls.
+For use with vcs to find, retrieve `.repos` files from an index on the internet.

@@ -46,8 +46,8 @@ _catkin: 'https://raw.github.com/stonier/pax_repos_index/kinetic/catkin.repos'
 
 # ros core
 catkin: [_catkin]
-ecl: 'https://raw.github.com/stonier/pax_rosinstall_index/kinetic/ecl.repos'
-ecl_tools: 'https://raw.github.com/stonier/pax_rosinstall_index/kinetic/ecl_tools.repos'
-ecl_lite: 'https://raw.github.com/stonier/pax_rosinstall_index/kinetic/ecl_lite.repos'
-yaml_cpp: 'https://raw.github.com/stonier/pax_rosinstall_index/kinetic/yaml_cpp.repos'
+ecl: 'https://raw.github.com/stonier/pax_repos_index/kinetic/ecl.repos'
+ecl_tools: 'https://raw.github.com/stonier/pax_repos_index/kinetic/ecl_tools.repos'
+ecl_lite: 'https://raw.github.com/stonier/pax_repos_index/kinetic/ecl_lite.repos'
+yaml_cpp: 'https://raw.github.com/stonier/pax_repos_index/kinetic/yaml_cpp.repos'
 
