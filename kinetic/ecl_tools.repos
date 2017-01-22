@@ -2,7 +2,7 @@
 # ECL is an open source, cross-platform set of c++ libraries (~ c++ version of posix).
 #
 repositories:
-  vcstool:
+  ecl_tools:
     type: git
     url: https://github.com/stonier/ecl_tools.git
     version: devel
