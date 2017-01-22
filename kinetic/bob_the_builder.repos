@@ -1,0 +1,33 @@
+#
+# Various builders, mostly including those that get built for my ppa
+#
+repositories:
+  bloom_release:
+    type: git
+    url: https://github.com/stonier/bloom_release.git
+    version: devel
+  ckx_tools:
+    type: git
+    url: https://github.com/stonier/ckx_tools.git
+    version: devel
+  groot_deb_builder:
+    type: git
+    url: https://github.com/stonier/groot_deb_builder.git
+    version: devel
+  groot_icons:
+    type: git
+    url: https://github.com/stonier/groot_icons.git
+    version: devel
+  groot_mediterranean_themes:
+    type: git
+    url: https://github.com/stonier/groot_mediterranean_themes.git
+    version: devel
+  pax_rosinstall_index:
+    type: git
+    url: https://github.com/stonier/pax_rosinstall_index.git
+    version: devel
+  vcs_find:
+    type: git
+    url: https://github.com/stonier/vcs_find.git
+    version: devel
+
