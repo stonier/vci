@@ -36,7 +36,11 @@
 # repos used only as helpers, use a '_' convention for sorting
 _catkin: 'kinetic/catkin.repos'
 
-# examples
+# using an alias
 catkin: [_catkin]
+
+# a relative path
 ecl: 'kinetic/ecl.repos'
+
+# a url
 ecl_tools: 'https://raw.github.com/stonier/vcs_extras/repos/kinetic/ecl_tools.repos'
