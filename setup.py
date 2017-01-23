@@ -19,13 +19,6 @@ setup(
     version='0.1.0',
     packages=find_packages(exclude=['tests*', 'docs*']),
     # check into catkin_tools/ckx_tools for a smarter, but complicated method
-    data_files=[
-        ('share/vcstool-completion', [
-            'vcstool-completion/vcs.bash',
-            'vcstool-completion/vcs.tcsh',
-            'vcstool-completion/vcs.zsh'
-        ])
-    ],
     install_requires=install_requires,
     author='Daniel Stonier',
     author_email='d.stonier@gmail.com',
