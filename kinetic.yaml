@@ -1,5 +1,5 @@
 ###############################################################################
-# Default Rosinstall Index
+# Default Repo Index
 ###############################################################################
 #
 # Why
@@ -19,10 +19,7 @@
 #
 # e.g. to download and compile ecl from key-value pair
 #
-#     ckx ws ~/ecl ecl
-#     cd ~/ecl
-#     ckx config .
-#     ckx build
+#     vci find ecl
 #
 # Mixins
 # ======
@@ -34,20 +31,12 @@
 #
 #    arm_bootstrap: [_catkin, _drone_bootstrap, yaml_cpp, respawn]
 #
-# Adding Index Key-Value Pairs
-# ============================
-#
-# Just make a pull request.
-#
 ###############################################################################
 
-# reposs indexed multiply below
-_catkin: 'https://raw.github.com/stonier/pax_repos_index/kinetic/catkin.repos'
+# repos used only as helpers, use a '_' convention for sorting
+_catkin: 'kinetic/catkin.repos'
 
-# ros core
+# examples
 catkin: [_catkin]
-ecl: 'https://raw.github.com/stonier/pax_repos_index/kinetic/ecl.repos'
-ecl_tools: 'https://raw.github.com/stonier/pax_repos_index/kinetic/ecl_tools.repos'
-ecl_lite: 'https://raw.github.com/stonier/pax_repos_index/kinetic/ecl_lite.repos'
-yaml_cpp: 'https://raw.github.com/stonier/pax_repos_index/kinetic/yaml_cpp.repos'
-
+ecl: 'kinetic/ecl.repos'
+ecl_tools: 'https://raw.github.com/stonier/vcs_extras/repos/kinetic/ecl_tools.repos'
