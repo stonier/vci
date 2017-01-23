@@ -15,6 +15,7 @@ Configure version control index settings.
 ##############################################################################
 
 import argparse
+import collections
 import urllib2
 import yaml
 
@@ -23,30 +24,40 @@ import vcs_extras.console as console
 from . import config
 
 ##############################################################################
-# Methods
+# Library Methods
 ##############################################################################
 
 
-def list_index_database(index_url):
+def get(index_url):
     try:
         response = urllib2.urlopen(index_url)
     except urllib2.URLError as unused_e:
         raise urllib2.URLError("index not found [{0}]".format(index_url))
     contents = yaml.load(response.read())
-    sorted_contents = contents.keys()
-    sorted_contents.sort()
+    sorted_contents = collections.OrderedDict(sorted(contents.items(), key=lambda x: x[0]))
+    return sorted_contents
+
+
+def display(index_url, contents=None):
+    if contents is None:
+        contents = get(index_url)
     print("\n" + console.green + index_url + console.reset + "\n")
-    for r in sorted_contents:
-        print(console.cyan + "  {0}: ".format(r) + console.yellow + "{0}".format(contents[r]) + console.reset)
+    for k, v in contents.iteritems():
+        print(console.cyan + "  {0}: ".format(k) + console.yellow + "{0}".format(v) + console.reset)
     print("\n")
+
+##############################################################################
+# Command Line Tool
+##############################################################################
 
 
 def parse_args(args):
     """
     Execute the command given the incoming args.
     """
-    index_url = config.get_index()
-    list_index_database(index_url)
+    url = config.get_index_url()
+    contents = get(url)
+    display(url, contents)
 
 
 def add_subparser(subparsers):

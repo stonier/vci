@@ -17,7 +17,7 @@ import argparse
 
 from . import find
 from . import config
-from . import list
+from . import index_contents
 
 ##############################################################################
 # Methods
@@ -32,5 +32,5 @@ def get_parser():
                                        help='valid commands for vci interactions')
     find.add_subparser(subparsers)
     config.add_subparser(subparsers)
-    list.add_subparser(subparsers)
+    index_contents.add_subparser(subparsers)
     return parser

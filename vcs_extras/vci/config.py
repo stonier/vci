@@ -16,9 +16,6 @@ Configure version control index settings.
 
 import argparse
 import os
-import urllib2
-import urlparse
-import yaml
 
 import vcs_extras.console as console
 
@@ -35,18 +32,18 @@ DEFAULT_INDEX_URL = 'https://raw.githubusercontent.com/stonier/vcs_extras/repos/
 ##############################################################################
 
 
-def get_index():
+def get_index_url():
     filename = os.path.join(common.home(), "settings")
     try:
         f = open(filename, 'r')
     except IOError:
-        return set_index(DEFAULT_INDEX_URL)
+        return set_index_url(DEFAULT_INDEX_URL)
     index_url = f.read()
     f.close()
     return index_url
 
 
-def set_index(index_url):
+def set_index_url(index_url):
     '''
       Set a uri for the vcs index to use for retrieval.
     '''
@@ -66,22 +63,14 @@ def set_index(index_url):
 
 def examples_string():
     examples = console.bold + "Examples\n\n" + console.reset  \
-        + console.cyan + "  vci config" \
-        + console.reset + " : " + console.yellow \
-        + "display the current index url\n" + console.reset \
-        + console.cyan + "  vci config --set file:///home/stonier/kinetic.yaml" \
-        + console.reset + " : " + console.yellow \
-        + "set the index to a local file\n" + console.reset \
-        + console.cyan + "  vci config --set https://raw.githubusercontent.com/stonier/vcs_extras/repos/kinetic.yaml" \
-        + console.reset + " : " + console.yellow \
-        + "set the index to a public github file\n" + console.reset
-    examples = console.bold + "Examples\n\n" + console.reset  \
         + "  1) Display the current index url\n\n" \
         + console.cyan + "      vci config\n\n" + console.reset \
         + "  2) Set the index to a local file\n\n" \
         + console.cyan + "      vci config " + console.yellow + "--set file:///home/stonier/kinetic.yaml\n\n" + console.reset \
         + "  3) Set the index to a public github file\n\n" \
-        + console.cyan + "      vci config " + console.yellow + "--set https://raw.githubusercontent.com/stonier/vcs_extras/repos/kinetic.yaml\n\n" + console.reset
+        + console.cyan + "      vci config " + console.yellow + "--set https://raw.githubusercontent.com/stonier/vcs_extras/repos/kinetic.yaml\n\n" + console.reset \
+        + "  4) Reset the index to the default\n\n" \
+        + console.cyan + "      vci config " + console.yellow + "--set-default\n\n" + console.reset
     return examples
 
 
@@ -89,9 +78,11 @@ def parse_args(args):
     """
     Execute the command given the incoming args.
     """
-    if args.set:
-        set_index(args.set)
-    index_url = get_index()
+    if args.set_default:
+        set_index_url(DEFAULT_INDEX_URL)
+    elif args.set:
+        set_index_url(args.set)
+    index_url = get_index_url()
     print("\n" + console.cyan + "URL " + console.reset + ": " + console.yellow + index_url + console.reset + "\n")
 
 
@@ -109,6 +100,6 @@ def add_subparser(subparsers):
     )
     subparser.epilog = examples_string()
     subparser.set_defaults(func=parse_args)
-    group = subparser.add_mutually_exclusive_group()
-    add = group.add_argument
+    add = subparser.add_argument
+    add('-d', '--set-default', action='store_true', default=False, help='Reset to the default url ({0})'.format(DEFAULT_INDEX_URL))
     add('-s', '--set', action='store', default=None, help="set the url for the index to use for retrieval")

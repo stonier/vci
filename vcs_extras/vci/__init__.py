@@ -15,6 +15,8 @@ Version control index handling from a yaml file on the internet (e.g. github)
 
 from . import argument_parsing
 from . import common
+from . import config
+from . import index_contents
 
 ##############################################################################
 # Entry Point

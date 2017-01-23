@@ -122,38 +122,38 @@ def error(msg):
 
 def logdebug(message):
     '''
-    Prefixes '[debug]' and colours the message green.
+    Prefixes '[DEBUG]' and colours the message green.
 
     :param message str: message to log.
     '''
-    print(green + "[debug] " + message + reset)
+    print(green + "[DEBUG] " + message + reset)
 
 
 def loginfo(message):
     '''
-    Prefixes '[info]' to the message.
+    Prefixes '[INFO]' to the message.
 
     :param message str: message to log.
     '''
-    print("[info ] " + message)
+    print("[INFO ] " + message)
 
 
 def logwarn(message):
     '''
-    Prefixes '[warn ]' and colours the message yellow.
+    Prefixes '[WARN ]' and colours the message yellow.
 
     :param message str: message to log.
     '''
-    print(yellow + "[warn ] " + message + reset)
+    print(yellow + "[WARN ] " + message + reset)
 
 
 def logerror(message):
     '''
-    Prefixes '[error]' and colours the message red.
+    Prefixes '[ERROR]' and colours the message red.
 
     :param message str: message to log.
     '''
-    print(red + "[error] " + message + reset)
+    print(red + "[ERROR] " + message + reset)
 
 
 def logfatal(message):
