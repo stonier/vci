@@ -1,13 +1,7 @@
-import argparse
-from distutils import log
-import os
-import site
-from stat import ST_MODE
-import sys
 
+import sys
 from setuptools import find_packages
 from setuptools import setup
-from setuptools.command.install import install
 
 # Setup installation dependencies, removing some so they
 # can build on the ppa
@@ -44,8 +38,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
-                 'Topic :: Software Development :: Version Control',
-                 'Topic :: Utilities'
+        'Topic :: Software Development :: Version Control',
+        'Topic :: Utilities'
     ],
     description="extra commands for working with vcstool",
     long_description="Provides additional commands for vcstool enabling esoteric use cases.",
