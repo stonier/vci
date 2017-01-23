@@ -1,2 +1,3 @@
 include stdeb.cfg
 include README.md
+include CHANGELOG.md
