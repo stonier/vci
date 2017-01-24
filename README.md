@@ -7,7 +7,12 @@ This is a nice way of collecting the locations of all the `.repos`
 you use, from both your projects and others, without having to remember
 long and forgettable url's.
 
-## Index
+### Install
+
+Install from either pypi (`pip install vcs_extras`) or from
+[ppa](https://launchpad.net/~d-stonier/+archive/ubuntu/snorriheim) for xenial.
+
+### Index
 
 A simple example of an index:
 
@@ -42,7 +47,7 @@ To list the contents of your index:
 vci list
 ```
 
-## Importing into VCS
+### Pipe into VCS Import
 
 The `vci find` command can be piped into vcs as follows to download or update
 your workspace:
@@ -51,7 +56,7 @@ your workspace:
 vci find ecl | vcs import
 ```
 
-# Dev Notes
+## Dev Notes
 
 For testing and development, run in a virtual env wrapper via:
 
