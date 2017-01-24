@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - ...
 
 ### Changed
-- ...
+- [list] catch and log errors when the index cannot be found
 
 ## [0.1.1] - 2017-01-23
 ### Added

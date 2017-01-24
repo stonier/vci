@@ -17,6 +17,7 @@ Configure version control index settings.
 import argparse
 import collections
 import urllib2
+import sys
 import yaml
 
 import vcs_extras.console as console
@@ -32,7 +33,7 @@ def get(index_url):
     try:
         response = urllib2.urlopen(index_url)
     except urllib2.URLError as unused_e:
-        raise urllib2.URLError("index not found [{0}]".format(index_url))
+        raise
     contents = yaml.load(response.read())
     sorted_contents = collections.OrderedDict(sorted(contents.items(), key=lambda x: x[0]))
     return sorted_contents
@@ -56,7 +57,13 @@ def parse_args(args):
     Execute the command given the incoming args.
     """
     url = config.get_index_url()
-    contents = get(url)
+    try:
+        contents = get(url)
+    except urllib2.URLError as e:
+        print("")
+        console.logerror("could not retrieve " + str(e))
+        print("")
+        sys.exit(1)
     display(url, contents)
 
 
