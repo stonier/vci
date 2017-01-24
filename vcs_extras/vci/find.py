@@ -18,7 +18,6 @@ import argparse
 import os
 import sys
 import urllib2
-import urlparse
 import yaml
 
 import vcs_extras.console as console
@@ -76,30 +75,20 @@ def parse_index(search_names, index_contents):
 #                    sources.extend(new_sources)
     return (names, sources)
 
-##############################################################################
-# Command Line Tool
-##############################################################################
 
-
-def examples_string():
-    examples = console.bold + "Examples\n\n" + console.reset  \
-        + "  1) Raw Yaml of the ECL repos\n\n" \
-        + console.cyan + "      vci find " + console.yellow + "ecl\n\n" + console.reset \
-        + "  2) Detailed Information\n\n" \
-        + console.cyan + "      vci find " + console.yellow + "--verbose ecl\n\n" + console.reset \
-        + "  3) Piping Into vcs\n\n" \
-        + console.cyan + "      vci find " + console.yellow + "| vcs import\n\n" + console.reset
-    return examples
-
-
-def parse_args(args):
+def _create_yaml_from_key(key):
     """
-    Execute the command given the incoming args.
+    Debugging version of create_yaml_from_key that retuns extra variables for
+    printing if required.
+
+    @todo better exception handling than sys.exit now it's a library function
+
+    :returns: tuple of (combined_yaml_contents, name_aliases, urls)
     """
     index_url = config.get_index_url()
     contents = index_contents.get(index_url)
     try:
-        (name_aliases, locations) = parse_index(args.key, contents)
+        (name_aliases, locations) = parse_index(key, contents)
     except RuntimeError as e:
         console.logerror(str(e))
         sys.exit(1)
@@ -124,6 +113,47 @@ def parse_args(args):
             combined_yaml_contents['repositories'].update(yaml_contents['repositories'])
         except urllib2.URLError as unused_e:
             console.logwarn("url not found, skipping [{0}]".format(url))
+    return (combined_yaml_contents, name_aliases, urls)
+
+
+def create_yaml_from_key(key):
+    """
+    Lookup the specified key in the current index and return
+    the list of all repository details combined in a single yaml dict.
+
+    To convert this to a single string suitable for passing to 'vcs import',
+    simply dump the yaml dict, for example:
+
+    .. code-block::python
+
+       yaml.dump(create_yaml_from_key(key)))
+
+    """
+    (combined_yaml_contents, unused_name_aliases, unused_urls) = _create_yaml_from_key(key)
+    return combined_yaml_contents
+
+
+##############################################################################
+# Command Line Tool
+##############################################################################
+
+
+def examples_string():
+    examples = console.bold + "Examples\n\n" + console.reset  \
+        + "  1) Raw Yaml of the ECL repos\n\n" \
+        + console.cyan + "      vci find " + console.yellow + "ecl\n\n" + console.reset \
+        + "  2) Detailed Information\n\n" \
+        + console.cyan + "      vci find " + console.yellow + "--verbose ecl\n\n" + console.reset \
+        + "  3) Piping Into vcs\n\n" \
+        + console.cyan + "      vci find " + console.yellow + "| vcs import\n\n" + console.reset
+    return examples
+
+
+def parse_args(args):
+    """
+    Execute the command given the incoming args.
+    """
+    (combined_yaml_contents, name_aliases, urls) = _create_yaml_from_key(args.key)
     if args.verbose:
         if name_aliases:
             print(console.bold + "Aliases" + console.reset)
