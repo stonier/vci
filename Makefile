@@ -3,11 +3,8 @@ VERSION=`./setup.py --version`
 help:
 	@echo "Local Build"
 	@echo "  build     : build the python package."
-	@echo "Pypi package"
-	@echo "  register  : register the package with PyPI."
-	@echo "  distro    : build the distribution tarball."
+	@echo "Packages"
 	@echo "  pypi      : upload the package to PyPI."
-	@echo "Deb package"
 	@echo "  source_deb: source packaging (for ppas)"
 	@echo "  deb       : build the deb."
 	@echo "  upload_deb: upload to yujin's repository."
@@ -42,9 +39,6 @@ source_deb:
 deb:
 	rm -rf dist deb_dist
 	python setup.py --command-packages=stdeb.command bdist_deb
-
-register:
-	python setup.py register
 
 pypi: 
 	python setup.py sdist upload
