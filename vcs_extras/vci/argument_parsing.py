@@ -27,7 +27,9 @@ from . import index_contents
 def get_parser():
     # Create a top level parser
     parser = argparse.ArgumentParser(
-        description="version control index handling", formatter_class=argparse.RawDescriptionHelpFormatter)
+        description="version control index handling",
+        epilog="And his noodly appendage reached forth to tickle the blessed...\n",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
     subparsers = parser.add_subparsers(title='commands',
                                        help='valid commands for vci interactions')
     find.add_subparser(subparsers)
