@@ -76,16 +76,18 @@ def parse_index(search_names, index_contents):
     return (names, sources)
 
 
-def _create_yaml_from_key(key):
+def _create_yaml_from_key(key, index_url):
     """
     Debugging version of create_yaml_from_key that retuns extra variables for
     printing if required.
+
+    :param str key: key to look up in the index
+    :param str index_url: url of the index to look up
 
     @todo better exception handling than sys.exit now it's a library function
 
     :returns: tuple of (combined_yaml_contents, name_aliases, urls)
     """
-    index_url = config.get_index_url()
     contents = index_contents.get(index_url)
     try:
         (name_aliases, locations) = parse_index(key, contents)
@@ -153,7 +155,8 @@ def parse_args(args):
     """
     Execute the command given the incoming args.
     """
-    (combined_yaml_contents, name_aliases, urls) = _create_yaml_from_key(args.key)
+    args.index = config.get_index_url() if args.index is None else args.index
+    (combined_yaml_contents, name_aliases, urls) = _create_yaml_from_key(args.key, args.index)
     if args.verbose:
         if name_aliases:
             print(console.bold + "Aliases" + console.reset)
@@ -184,5 +187,6 @@ def add_subparser(subparsers):
     subparser.epilog = examples_string()
     subparser.set_defaults(func=parse_args)
     add = subparser.add_argument
+    common.add_index_argument(subparser)
     add('--verbose', '-v', action='store_true', default=False, help='Print verbose information (i.e. more than raw yaml)')
     add('key', nargs=1, type=str, help="the key to lookup the index")

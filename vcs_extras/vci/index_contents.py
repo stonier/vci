@@ -22,6 +22,7 @@ import yaml
 
 import vcs_extras.console as console
 
+from . import common
 from . import config
 
 ##############################################################################
@@ -56,7 +57,7 @@ def parse_args(args):
     """
     Execute the command given the incoming args.
     """
-    url = config.get_index_url()
+    url = config.get_index_url() if args.index is None else args.index
     try:
         contents = get(url)
     except urllib2.URLError as e:
@@ -79,4 +80,5 @@ def add_subparser(subparsers):
         help="display each key, url in the current index",  # this shows in the parent parser
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
+    common.add_index_argument(subparser)
     subparser.set_defaults(func=parse_args)

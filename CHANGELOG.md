@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - ...
 
 ### Changed
-- ...
+- [find,list] added --index override functionality
 
 ## [0.1.2] - 2017-01-24
 ### Changed

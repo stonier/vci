@@ -53,3 +53,17 @@ def is_url(source_uri):
         ):
         return False
     return True
+
+
+def add_index_argument(subparser):
+    """
+
+    add = subparser.add_argument
+    common.add_index_argument(subparser)
+    """
+    add = subparser.add_argument
+    add('-i', '--index', action='store', default=None, help="override the currently stored index for this call only")
+
+
+
+
