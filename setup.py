@@ -16,7 +16,7 @@ if sys.version_info[0] == 2 and sys.version_info[1] <= 6:
 
 setup(
     name='vcs_extras',
-    version='0.1.2',
+    version='0.1.3',
     packages=find_packages(exclude=['tests*', 'docs*']),
     # check into catkin_tools/ckx_tools for a smarter, but complicated method
     install_requires=install_requires,
