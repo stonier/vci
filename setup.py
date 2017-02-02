@@ -2,6 +2,7 @@
 import sys
 from setuptools import find_packages
 from setuptools import setup
+from vcs_extras import __version__
 
 # Setup installation dependencies, removing some so they
 # can build on the ppa
@@ -16,7 +17,7 @@ if sys.version_info[0] == 2 and sys.version_info[1] <= 6:
 
 setup(
     name='vcs_extras',
-    version='0.1.4',
+    version=__version__,
     packages=find_packages(exclude=['tests*', 'docs*']),
     # check into catkin_tools/ckx_tools for a smarter, but complicated method
     install_requires=install_requires,

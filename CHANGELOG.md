@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - ...
 
 ### Changed
-- ...
+- [vci] version option added
 
 ## [0.1.4] - 2017-02-01
 ### Changed
