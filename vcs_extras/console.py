@@ -64,7 +64,7 @@ def console_has_colours(stream):
 
 has_colours = console_has_colours(sys.stdout)
 if has_colours:
-    #reset = "\x1b[0;0m"
+    # reset = "\x1b[0;0m"
     reset = "\x1b[0m"
     bold = "\x1b[%sm" % '1'
     black, red, green, yellow, blue, magenta, cyan, white = ["\x1b[%sm" % str(i) for i in range(30, 38)]

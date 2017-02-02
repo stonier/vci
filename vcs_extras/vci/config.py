@@ -83,7 +83,10 @@ def parse_args(args):
     elif args.set:
         set_index_url(args.set)
     index_url = get_index_url()
-    print("\n" + console.cyan + "URL " + console.reset + ": " + console.yellow + index_url + console.reset + "\n")
+    if args.no_colour:
+        print(index_url)
+    else:
+        print("\n" + console.cyan + "URL " + console.reset + ": " + console.yellow + index_url + console.reset + "\n")
 
 
 def add_subparser(subparsers):
@@ -100,6 +103,7 @@ def add_subparser(subparsers):
     )
     subparser.epilog = examples_string()
     subparser.set_defaults(func=parse_args)
+    common.add_nocolour_argument(subparser)
     add = subparser.add_argument
     add('-d', '--set-default', action='store_true', default=False, help='Reset to the default url ({0})'.format(DEFAULT_INDEX_URL))
     add('-s', '--set', action='store', default=None, help="set the url for the index to use for retrieval")

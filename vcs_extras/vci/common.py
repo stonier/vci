@@ -57,13 +57,22 @@ def is_url(source_uri):
 
 def add_index_argument(subparser):
     """
+    Oft used argument for overriding the vci index.
 
-    add = subparser.add_argument
-    common.add_index_argument(subparser)
+    :param subparser: an argparse instance
     """
     add = subparser.add_argument
     add('-i', '--index', action='store', default=None, help="override the currently stored index for this call only")
 
+
+def add_nocolour_argument(subparser):
+    """
+    Oft used argument for disabling colour.
+
+    :param subparser: an argparse instance
+    """
+    add = subparser.add_argument
+    add('--no-colour', action='store_true', help="disable colour output")
 
 
 

@@ -40,12 +40,17 @@ def get(index_url):
     return sorted_contents
 
 
-def display(index_url, contents=None):
+def display(index_url, contents=None, no_colour=False):
     if contents is None:
         contents = get(index_url)
-    print("\n" + console.green + index_url + console.reset + "\n")
-    for k, v in contents.iteritems():
-        print(console.cyan + "  {0}: ".format(k) + console.yellow + "{0}".format(v) + console.reset)
+    if no_colour:
+        print("\n" + index_url + "\n")
+        for k, v in contents.iteritems():
+            print("    {0}: ".format(k) + "{0}".format(v))
+    else:
+        print("\n" + console.green + index_url + console.reset + "\n")
+        for k, v in contents.iteritems():
+            print(console.cyan + "    {0}: ".format(k) + console.yellow + "{0}".format(v) + console.reset)
     print("\n")
 
 ##############################################################################
@@ -65,7 +70,7 @@ def parse_args(args):
         console.logerror("could not retrieve " + str(e))
         print("")
         sys.exit(1)
-    display(url, contents)
+    display(url, contents, args.no_colour)
 
 
 def add_subparser(subparsers):
@@ -81,4 +86,5 @@ def add_subparser(subparsers):
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     common.add_index_argument(subparser)
+    common.add_nocolour_argument(subparser)
     subparser.set_defaults(func=parse_args)

@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - ...
 
 ### Changed
-- ...
+- [config, list] --no-colour option added
 
 ## [0.1.3] - 2017-02-01
 ### Changed
