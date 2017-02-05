@@ -131,7 +131,7 @@ def create_yaml_from_key(key):
        yaml.dump(create_yaml_from_key(key)))
 
     """
-    (combined_yaml_contents, unused_name_aliases, unused_urls) = _create_yaml_from_key(key)
+    (combined_yaml_contents, unused_name_aliases, unused_urls) = _create_yaml_from_key(key, config.get_index_url())
     return combined_yaml_contents
 
 
