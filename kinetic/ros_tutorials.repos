@@ -1,0 +1,23 @@
+#
+# Self contained workspace with all requirements for ros tutorials
+#
+repositories:
+  gtest              : { type: 'git', url: 'https://github.com/google/googletest.git',      version: 'release-1.8.0' }
+  catkin             : { type: 'git', url: 'https://github.com/ros/catkin.git',             version: 'kinetic-devel' }
+  cmake_modules      : { type: 'git', url: 'https://github.com/ros/cmake_modules.git',      version: '0.4-devel' }
+  rospack            : { type: 'git', url: 'https://github.com/ros/rospack.git',            version: 'jade-devel' }
+  genmsg             : { type: 'git', url: 'https://github.com/ros/genmsg.git',             version: 'indigo-devel' }
+  gencpp             : { type: 'git', url: 'https://github.com/ros/gencpp.git',             version: 'indigo-devel' }
+  genpy              : { type: 'git', url: 'https://github.com/ros/genpy.git',              version: 'kinetic-devel' }
+  geneus             : { type: 'git', url: 'https://github.com/jsk-ros-pkg/geneus.git',     version: 'master' }
+  genlisp            : { type: 'git', url: 'https://github.com/ros/genlisp.git',            version: 'groovy-devel' }
+  gennodejs          : { type: 'git', url: 'https://github.com/RethinkRobotics-opensource/gennodejs.git', version: 'kinetic-devel' }
+  message_generation : { type: 'git', url: 'https://github.com/ros/message_generation.git', version: 'kinetic-devel' }
+  message_runtime    : { type: 'git', url: 'https://github.com/ros/message_runtime.git',    version: 'groovy-devel' }
+  ros_comm_msgs      : { type: 'git', url: 'https://github.com/ros/ros_comm_msgs',          version: 'indigo-devel' }
+  std_msgs           : { type: 'git', url: 'https://github.com/ros/std_msgs.git',           version: 'groovy-devel' }
+  common_msgs        : { type: 'git', url: 'https://github.com/ros/common_msgs.git',        version: 'jade-devel' }
+  ros                : { type: 'git', url: 'https://github.com/ros/ros.git',                version: 'kinetic-devel' }
+  roscpp_core        : { type: 'git', url: 'https://github.com/ros/roscpp_core.git',        version: 'kinetic-devel' }
+  ros_comm           : { type: 'git', url: 'https://github.com/ros/ros_comm.git',           version: 'kinetic-devel' }
+  ros_tutorials      : { type: 'git', url: 'https://github.com/ros/ros_tutorials.git',      version: 'kinetic-devel' }
