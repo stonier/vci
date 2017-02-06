@@ -55,7 +55,7 @@ The [index yaml](https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yam
 includes considerably more detail and examples in the comments that elucidate the
 contents of an index file.
 
-## Switching the Index**
+## Switching the Index
 
 Point `vci` at the pre-prepared ros2 index:
 
@@ -78,7 +78,18 @@ $ vci config --set-defaults
 $ vci find ecl | vcs import
 ```
 
-## Serving the Index Locally
+## Create Your Own Index
+
+For getting started quickly, start your own public repository or branch on
+github in the same vein as [vci/repos](https://github.com/stonier/vci/tree/repos).
+Refer to [kinetic.yaml](https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml)
+for detailed examples and tips on creating your own index yaml file. Once created,
+simply point vci at it with the `vci config <url>` command.
+
+Note that the index does not have to be on github. It could just as easily be hosted
+on a file server or on your local machine.
+
+## Hosting the Index Locally
 
 If you need operation offline or simply want speedier acess, you can point
 vci at a local index. If offline, this does require that all .repo references
@@ -93,17 +104,6 @@ $ git checkout repos
 # point vci at it
 $ vci config file:///mnt/work/vci/kinetic.yaml
 ```
-
-## Create Your Own Index
-
-For getting started quickly, start your own public repository or branch on
-github in the same vein as [vci/repos](https://github.com/stonier/vci/tree/repos).
-Refer to [kinetic.yaml](https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml)
-for detailed examples and tips on creating your own index yaml file. Once created,
-simply point vci at it with the `vci config <url>` command.
-
-Note that the index does not have to be on github. It could just as easily be on
-a file server or on your local machine.
 
 # Dev Notes
 
