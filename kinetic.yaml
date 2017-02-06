@@ -41,6 +41,7 @@ catkin: [_catkin]
 
 # a relative path
 ecl: 'kinetic/ecl.repos'
+ros_tutorials: 'kinetic/ros_tutorials.repos'
 
 # a url
 ecl_tools: 'https://raw.github.com/stonier/vci/repos/kinetic/ecl_tools.repos'
