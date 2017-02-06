@@ -1,6 +1,6 @@
 #
 # License: BSD
-#    https://raw.githubusercontent.com/stonier/vcs_extras/devel/LICENSE
+#    https://raw.githubusercontent.com/stonier/vci/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -17,15 +17,14 @@ Configure version control index settings.
 import argparse
 import os
 
-import vcs_extras.console as console
-
 from . import common
+from . import console
 
 ##############################################################################
 # Constants
 ##############################################################################
 
-DEFAULT_INDEX_URL = 'https://raw.githubusercontent.com/stonier/vcs_extras/repos/kinetic.yaml'
+DEFAULT_INDEX_URL = 'https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml'
 
 ##############################################################################
 # Library
@@ -68,7 +67,7 @@ def examples_string():
         + "  2) Set the index to a local file\n\n" \
         + console.cyan + "      vci config " + console.yellow + "--set file:///home/stonier/kinetic.yaml\n\n" + console.reset \
         + "  3) Set the index to a public github file\n\n" \
-        + console.cyan + "      vci config " + console.yellow + "--set https://raw.githubusercontent.com/stonier/vcs_extras/repos/kinetic.yaml\n\n" + console.reset \
+        + console.cyan + "      vci config " + console.yellow + "--set {0}\n\n".format(DEFAULT_INDEX_URL) + console.reset \
         + "  4) Reset the index to the default\n\n" \
         + console.cyan + "      vci config " + console.yellow + "--set-default\n\n" + console.reset
     return examples

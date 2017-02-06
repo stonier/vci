@@ -3,12 +3,12 @@
 # Script for setting up the development environment.
 
 if [ "${VIRTUAL_ENV}" == "" ]; then
-  workon vcs_extras
+  workon vci
   if [ $? -ne 0 ]; then
-    mkvirtualenv vcs_extras
+    mkvirtualenv vci
     if [ $? -ne 0 ]; then
     	sudo apt-get install virtualenvwrapper
-        mkvirtualenv vcs_extras
+        mkvirtualenv vci
     fi
     # probably some python setup.py target which will do this for you
     pip install vcstool

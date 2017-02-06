@@ -1,6 +1,6 @@
 #
 # License: BSD
-#    https://raw.githubusercontent.com/stonier/vcs_extras/devel/LICENSE
+#    https://raw.githubusercontent.com/stonier/vci/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -23,12 +23,12 @@ import urlparse
 
 def home():
     """
-    Get directory location of '.vcs_extras' where configuration is stored.
+    Get directory location of '.vci' where configuration is stored.
 
     @return: path to the home directory
     @rtype: str
     """
-    home_dir = os.path.join(os.path.expanduser('~'), '.vcs_extras', 'vci')
+    home_dir = os.path.join(os.path.expanduser('~'), '.vci')
     if not os.path.exists(home_dir):
         os.makedirs(home_dir)
     return home_dir

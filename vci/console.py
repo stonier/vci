@@ -1,6 +1,6 @@
 #
 # License: BSD
-#    https://raw.githubusercontent.com/stonier/vcs_extras/devel/LICENSE
+#    https://raw.githubusercontent.com/stonier/vci/devel/LICENSE
 #
 
 ##############################################################################

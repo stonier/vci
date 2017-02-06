@@ -1,6 +1,6 @@
 #
 # License: BSD
-#    https://raw.githubusercontent.com/stonier/vcs_extras/devel/LICENSE
+#    https://raw.githubusercontent.com/stonier/vci/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -20,10 +20,9 @@ import sys
 import urllib2
 import yaml
 
-import vcs_extras.console as console
-
 from . import common
 from . import config
+from . import console
 from . import index_contents
 
 ##############################################################################

@@ -1,6 +1,6 @@
 #
 # License: BSD
-#    https://raw.githubusercontent.com/stonier/vcs_extras/devel/LICENSE
+#    https://raw.githubusercontent.com/stonier/vci/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -9,13 +9,16 @@
 """
 Version control index handling from a yaml file on the internet (e.g. github)
 """
+
 ##############################################################################
 # Imports
 ##############################################################################
 
+from .__version__ import __version__
 from . import argument_parsing
 from . import common
 from . import config
+from . import console
 from . import index_contents
 
 ##############################################################################

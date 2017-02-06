@@ -1,6 +1,6 @@
 #
 # License: BSD
-#    https://raw.githubusercontent.com/stonier/vcs_extras/devel/LICENSE
+#    https://raw.githubusercontent.com/stonier/vci/devel/LICENSE
 #
 ##############################################################################
 # Documentation
@@ -14,9 +14,9 @@ Arg parse construction.
 ##############################################################################
 
 import argparse
-import vcs_extras
-import vcs_extras.console as console
 
+from .__version__ import __version__
+from . import console
 from . import find
 from . import config
 from . import index_contents
@@ -27,7 +27,7 @@ from . import index_contents
 
 
 def version_string():
-    return console.cyan + "Version" + console.reset + " : " + console.yellow + vcs_extras.__version__ + console.reset
+    return console.cyan + "Version" + console.reset + " : " + console.yellow + __version__ + console.reset
 
 
 def get_parser():

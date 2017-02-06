@@ -43,8 +43,3 @@ deb:
 pypi: 
 	python setup.py sdist upload
 
-upload_deb:
-	cd deb_dist; ../scripts/yujin_upload_deb python-yujin-tools
-
-release: pypi deb upload_deb
-
