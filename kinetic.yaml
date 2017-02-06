@@ -43,4 +43,4 @@ catkin: [_catkin]
 ecl: 'kinetic/ecl.repos'
 
 # a url
-ecl_tools: 'https://raw.github.com/stonier/vcs_extras/repos/kinetic/ecl_tools.repos'
+ecl_tools: 'https://raw.github.com/stonier/vci/repos/kinetic/ecl_tools.repos'
