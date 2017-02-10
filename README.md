@@ -7,7 +7,15 @@ long and forgettable url's.
 
 ## Quick Demo
 
+Click to follow the link to a video or just read the code block below.
+
+[![VCI Demo](docs/vci.png)](http://showterm.io/c5f1a2f5ab8f6f9d5f149#fast)
+
 ```
+# ********************************************************
+# * Searching the Index
+# ********************************************************
+
 $ vci config --set-default
 
 URL : https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml
@@ -29,6 +37,10 @@ repositories:
   cmake_modules: {type: git, url: 'https://github.com/ros/cmake_modules.git', version: 0.4-devel}
   gtest: {type: git, url: 'https://github.com/google/googletest.git', version: release-1.8.0}
 
+# ********************************************************
+# * Work with VCS & Catkin Tools
+# ********************************************************
+
 $ mkdir -p ~/catkin_ws/src; cd ~/catkin_ws/src
 $ vci find catkin | vcs import
 
@@ -44,21 +56,33 @@ Your branch is up-to-date with 'origin/0.4-devel'.
 === ./gtest (git) ===
 Cloning into '.'...
 Note: checking out 'release-1.8.0'.
-
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by performing another checkout.
-
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -b with the checkout command again. Example:
-
-  git checkout -b <new-branch-name>
-
-HEAD is now at ec44c6c... Merge pull request #821 from mazong1123/master
+...
 
 $ cd ~/catkin_ws
-$ catkin init
 $ catkin build
+...
+
+# ********************************************************
+# * Switch Index
+# ********************************************************
+$ vci config --set https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
+
+URL : https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
+
+$ vci list
+
+https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
+
+    core: https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+
+# ********************************************************
+# * Local Index
+# ********************************************************
+$ git clone https://github.com/stonier/vci ~/vci
+...
+$ vci config --set file:///home/snorri/vci/kinetic.yaml
+...
+$ vci list
 ...
 ```
 
