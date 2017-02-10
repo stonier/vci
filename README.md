@@ -132,14 +132,18 @@ https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml
 
 Here you can see there is a convention applied via leading underscores
 to indicate keys that should not be used directly, and a mechanism for
-composing new keys from a list of other keys.
+composing new keys from a list of other keys. Paths can be absolute or relative.
 The [index yaml](https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml)
 includes considerably more detail and examples in the comments that elucidate the
 contents of an index file.
 
 ## Switching the Index
 
-Point `vci` at the pre-prepared ros2 index:
+You can use an index served from any file publicly served **online**. The most common use
+case being a file served from github, but an ordinary file server will also do.
+
+Example, point `vci` at the pre-prepared ros2 index:
+
 
 ```bash
 $ vci config --set https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
@@ -148,6 +152,18 @@ $ vci list
 https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
 
     core: https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+```
+
+If you need operation **offline** or simply want speedier acess, you can also point
+vci at a local index. If offline, this does require that all .repo references
+are relative paths.
+
+```bash
+# clone vci's index branch
+$ git clone https://github.com/stonier/vci.git /mnt/work/vci
+$ cd /mnt/work/vci
+$ git checkout repos
+$ vci config --set file:///mnt/work/vci/kinetic.yaml
 ```
 
 ## Import from the Index
@@ -168,25 +184,6 @@ github in the same vein as [vci/repos](https://github.com/stonier/vci/tree/repos
 Refer to [kinetic.yaml](https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml)
 for detailed examples and tips on creating your own index yaml file. Once created,
 simply point vci at it with the `vci config --set <url>` command.
-
-Note that the index does not have to be on github. It could just as easily be hosted
-on a file server or on your local machine.
-
-## Hosting the Index Locally
-
-If you need operation offline or simply want speedier acess, you can point
-vci at a local index. If offline, this does require that all .repo references
-are relative paths.
-
-```bash
-# clone vci's index branch
-$ git clone https://github.com/stonier/vci.git /mnt/work/vci
-$ cd /mnt/work/vci
-$ git checkout repos
-
-# point vci at it
-$ vci config --set file:///mnt/work/vci/kinetic.yaml
-```
 
 # Dev Notes
 
