@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 - ...
 
+## [0.1.7] - 2017-02-15
+### Changed
+- [config] --set becomes a regular positional argument
+
 ## [0.1.6] - 2017-02-06
 ### Added
 - [infra] package renamed from vcs_extras->vci
@@ -43,7 +47,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - [list] list the contents of the index
 - [config] set, set-default or just display the current index url
 
-[Unreleased]: https://github.com/stonier/vci/compare/0.1.5...HEAD
+[Unreleased]: https://github.com/stonier/vci/compare/0.1.7...HEAD
+[0.1.7]: https://github.com/stonier/vci/compare/0.1.6...0.1.7
+[0.1.6]: https://github.com/stonier/vci/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/stonier/vci/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/stonier/vci/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/stonier/vci/compare/0.1.2...0.1.3
