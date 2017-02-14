@@ -158,11 +158,11 @@ def logerror(message):
 
 def logfatal(message):
     '''
-    Prefixes '[fatal]' and colours the message bold red.
+    Prefixes '[FATAL]' and colours the message bold red.
 
     :param message str: message to log.
     '''
-    print(bold_red + "[error] " + message + reset)
+    print(bold_red + "[FATAL] " + message + reset)
 
 
 ##############################################################################

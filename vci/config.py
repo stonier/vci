@@ -16,6 +16,8 @@ Configure version control index settings.
 
 import argparse
 import os
+import sys
+import urlparse
 
 from . import common
 from . import console
@@ -65,9 +67,9 @@ def examples_string():
         + "  1) Display the current index url\n\n" \
         + console.cyan + "      vci config\n\n" + console.reset \
         + "  2) Set the index to a local file\n\n" \
-        + console.cyan + "      vci config " + console.yellow + "--set file:///home/stonier/kinetic.yaml\n\n" + console.reset \
+        + console.cyan + "      vci config " + console.yellow + "file:///home/stonier/kinetic.yaml\n\n" + console.reset \
         + "  3) Set the index to a public github file\n\n" \
-        + console.cyan + "      vci config " + console.yellow + "--set {0}\n\n".format(DEFAULT_INDEX_URL) + console.reset \
+        + console.cyan + "      vci config " + console.yellow + "{0}\n\n".format(DEFAULT_INDEX_URL) + console.reset \
         + "  4) Reset the index to the default\n\n" \
         + console.cyan + "      vci config " + console.yellow + "--set-default\n\n" + console.reset
     return examples
@@ -79,8 +81,13 @@ def parse_args(args):
     """
     if args.set_default:
         set_index_url(DEFAULT_INDEX_URL)
-    elif args.set:
-        set_index_url(args.set)
+    elif args.url:
+        # very simple validation (note netloc is empty for file://)
+        result = urlparse.urlparse(args.url)
+        if not result.scheme:
+            console.logerror("invalid url ['{0}']".format(args.url))
+            sys.exit(1)
+        set_index_url(args.url)
     index_url = get_index_url()
     if args.no_colour:
         print(index_url)
@@ -105,4 +112,4 @@ def add_subparser(subparsers):
     common.add_nocolour_argument(subparser)
     add = subparser.add_argument
     add('-d', '--set-default', action='store_true', default=False, help='Reset to the default url ({0})'.format(DEFAULT_INDEX_URL))
-    add('-s', '--set', action='store', default=None, help="set the url for the index to use for retrieval")
+    add('url', type=str, nargs='?', default="", help='set the url for the index to use for retrieval')

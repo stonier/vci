@@ -33,7 +33,8 @@ def main(args=None):
     try:
         # Create a top level parser
         parser = argument_parsing.get_parser()
-        options, unused_unknown_args = parser.parse_known_args(args)
+        options = parser.parse_args(args)
+        # options, unused_unknown_args = parser.parse_known_args(args)
         options.func(options)  # relay arg parsing to the subparser configured `set_defaults` function callback
 
     except KeyboardInterrupt:
