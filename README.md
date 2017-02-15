@@ -65,7 +65,7 @@ $ catkin build
 # ********************************************************
 # * Switch Index
 # ********************************************************
-$ vci config --set https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
+$ vci config https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
 
 URL : https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
 
@@ -80,7 +80,7 @@ https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
 # ********************************************************
 $ git clone https://github.com/stonier/vci ~/vci
 ...
-$ vci config --set file:///home/snorri/vci/kinetic.yaml
+$ vci config file:///home/snorri/vci/kinetic.yaml
 ...
 $ vci list
 ...
@@ -146,7 +146,7 @@ Example, point `vci` at the pre-prepared ros2 index:
 
 
 ```bash
-$ vci config --set https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
+$ vci config https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
 $ vci list
 
 https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
@@ -163,7 +163,7 @@ are relative paths.
 $ git clone https://github.com/stonier/vci.git /mnt/work/vci
 $ cd /mnt/work/vci
 $ git checkout repos
-$ vci config --set file:///mnt/work/vci/kinetic.yaml
+$ vci config file:///mnt/work/vci/kinetic.yaml
 ```
 
 ## Import from the Index
@@ -183,7 +183,7 @@ For getting started quickly, start your own public repository or branch on
 github in the same vein as [vci/repos](https://github.com/stonier/vci/tree/repos).
 Refer to [kinetic.yaml](https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml)
 for detailed examples and tips on creating your own index yaml file. Once created,
-simply point vci at it with the `vci config --set <url>` command.
+simply point vci at it with the `vci config <url>` command.
 
 # Dev Notes
 
