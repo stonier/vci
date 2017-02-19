@@ -7,84 +7,9 @@ long and forgettable url's.
 
 ## Quick Demo
 
-Click to follow the link to a video or just read the code block below.
+Click to follow the link to a video.
 
 [![VCI Demo](docs/vci.png)](http://showterm.io/c5f1a2f5ab8f6f9d5f149#fast)
-
-```
-# ********************************************************
-# * Searching the Index
-# ********************************************************
-
-$ vci config --set-default
-
-URL : https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml
-
-$ vci list
-
-https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml
-
-    _catkin: kinetic/catkin.repos
-    catkin: ['_catkin']
-    ecl: kinetic/ecl.repos
-    ecl_tools: https://raw.github.com/stonier/vci/repos/kinetic/ecl_tools.repos
-    ros-tutorials: kinetic/ros_tutorials.repos
-
-$ vci find catkin
-
-repositories:
-  catkin: {type: git, url: 'https://github.com/ros/catkin.git', version: kinetic-devel}
-  cmake_modules: {type: git, url: 'https://github.com/ros/cmake_modules.git', version: 0.4-devel}
-  gtest: {type: git, url: 'https://github.com/google/googletest.git', version: release-1.8.0}
-
-# ********************************************************
-# * Work with VCS & Catkin Tools
-# ********************************************************
-
-$ mkdir -p ~/catkin_ws/src; cd ~/catkin_ws/src
-$ vci find catkin | vcs import
-
-...
-=== ./catkin (git) ===
-Cloning into '.'...
-Already on 'kinetic-devel'
-Your branch is up-to-date with 'origin/kinetic-devel'.
-=== ./cmake_modules (git) ===
-Cloning into '.'...
-Already on '0.4-devel'
-Your branch is up-to-date with 'origin/0.4-devel'.
-=== ./gtest (git) ===
-Cloning into '.'...
-Note: checking out 'release-1.8.0'.
-...
-
-$ cd ~/catkin_ws
-$ catkin build
-...
-
-# ********************************************************
-# * Switch Index
-# ********************************************************
-$ vci config https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
-
-URL : https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
-
-$ vci list
-
-https://raw.githubusercontent.com/stonier/vci/repos/ros2.yaml
-
-    core: https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
-
-# ********************************************************
-# * Local Index
-# ********************************************************
-$ git clone https://github.com/stonier/vci ~/vci
-...
-$ vci config file:///home/snorri/vci/kinetic.yaml
-...
-$ vci list
-...
-```
 
 ## Install
 
@@ -112,7 +37,7 @@ commands:
 And his noodly appendage reached forth to tickle the blessed...
 ```
 
-## The Default Index
+## Listing the Index
 
 The default index contains a few ROS 1 kinetic repositories that
 are useful for illustrating this tool:
