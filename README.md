@@ -106,7 +106,8 @@ $ vci find ecl | vcs import
 
 For getting started quickly, start your own public repository or branch on
 github in the same vein as [vci/repos](https://github.com/stonier/vci/tree/repos).
-Refer to [kinetic.yaml](https://raw.githubusercontent.com/stonier/vci/repos/kinetic.yaml)
+
+Refer to [kinetic.yaml](https://github.com/stonier/vci/blob/repos/kinetic.yaml)
 for detailed examples and tips on creating your own index yaml file. Once created,
 simply point vci at it with the `vci config <url>` command.
 
