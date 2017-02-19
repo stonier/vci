@@ -1,6 +1,6 @@
 # VCI
 
-Works with vcstool to find/fetch from a `.repos` index.
+Works with [vcstool](https://github.com/dirk-thomas/vcstool) to find/fetch from a `.repos` index.
 This is a great way of collecting the locations of all the `.repos`
 you use, from both your projects and others, without having to remember
 long and forgettable url's.
