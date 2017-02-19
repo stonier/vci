@@ -84,14 +84,14 @@ vci at a local index. If offline, this does require that all .repo references
 are relative paths.
 
 ```bash
-# clone vci's index branch
+# clone vci's repos branch
 $ git clone https://github.com/stonier/vci.git /mnt/work/vci
 $ cd /mnt/work/vci
 $ git checkout repos
 $ vci config file:///mnt/work/vci/kinetic.yaml
 ```
 
-## Import from the Index
+## Import from the Index (w/ VCS)
 
 The `vci find` command can be piped into `vcs import` as follows to import
 sources into your workspace:
