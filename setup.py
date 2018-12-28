@@ -9,7 +9,6 @@ from vci import __version__
 install_requires = [
     'setuptools',
     'PyYAML',
-    'vcstool',
     # 'urllib2', use urllib.request in python3
 ]
 
