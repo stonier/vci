@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 - ...
 
+## [0.2.1] - 2018-12-28
+### Added
+- [infra] upgraded for python3
+
+### Changed
+- [infra] dropped unnecessary vcstool dependency
+
 ## [0.1.7] - 2017-02-15
 ### Changed
 - [config] --set becomes a regular positional argument
