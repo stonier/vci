@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 - ...
 
+## [0.2.4] - 2018-12-28
+### Changed
+- [infra] argparse dependency for python3 dropped
+
 ## [0.2.2] - 2018-12-28
 ### Changed
 - [infra] pypi fixes
