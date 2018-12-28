@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 - ...
 
+## [0.2.2] - 2018-12-28
+### Changed
+- [infra] pypi fixes
+
 ## [0.2.1] - 2018-12-28
 ### Added
 - [infra] upgraded for python3

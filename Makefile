@@ -40,6 +40,10 @@ deb:
 	rm -rf dist deb_dist
 	python setup.py --command-packages=stdeb.command bdist_deb
 
-pypi: 
-	python setup.py sdist upload
+pypi:
+	python setup.py sdist bdist_wheel
+	twine upload dist/*
 
+pypi_test:
+	python setup.py sdist bdist_wheel
+	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
