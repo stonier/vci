@@ -10,7 +10,17 @@ install_requires = [
     'setuptools',
     'PyYAML',
     'vcstool',
+    # 'urllib2', use urllib.request in python3
 ]
+
+tests_require=['nose', 'pydot', 'pytest', 'flake8', 'yanc', 'nose-htmloutput']
+
+extras_require = {
+    'test': tests_require,
+    'docs': ["Sphinx", "sphinx-argparse", "sphinx_rtd_theme"],
+    'debs': ['stdeb', 'twine']
+}
+
 if sys.version_info[0] == 2 and sys.version_info[1] <= 6:
     install_requires.append('argparse')
 
@@ -21,6 +31,7 @@ setup(
     packages=find_packages(exclude=['tests*', 'docs*']),
     # check into catkin_tools/ckx_tools for a smarter, but complicated method
     install_requires=install_requires,
+    extras_require=extras_require,
     author='Daniel Stonier',
     author_email='d.stonier@gmail.com',
     maintainer='Daniel Stonier',

@@ -14,7 +14,7 @@ Common helpers for the vci commands.
 ##############################################################################
 
 import os
-import urlparse
+import urllib.parse
 
 ##############################################################################
 # Methods
@@ -46,7 +46,7 @@ def is_url(source_uri):
     """
     if source_uri is None or source_uri == '':
         return False
-    parsed_uri = urlparse.urlparse(source_uri)
+    parsed_uri = urllib.parse.urlparse(source_uri)
     if (parsed_uri.scheme == '' and
         parsed_uri.netloc == '' and
         '@' not in parsed_uri.path.split('/')[0]

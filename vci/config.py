@@ -17,7 +17,7 @@ Configure version control index settings.
 import argparse
 import os
 import sys
-import urlparse
+import urllib.parse
 
 from . import common
 from . import console
@@ -50,9 +50,9 @@ def set_index_url(index_url):
     '''
     # could actually check that it is a valid uri though.
     filename = os.path.join(common.home(), "settings")
-    f = open(filename, 'w+')
+    f = open(filename, 'w+', encoding='utf-8')
     try:
-        f.write(index_url.encode('utf-8'))
+        f.write(index_url)
     finally:
         f.close()
     return index_url
@@ -83,7 +83,7 @@ def parse_args(args):
         set_index_url(DEFAULT_INDEX_URL)
     elif args.url:
         # very simple validation (note netloc is empty for file://)
-        result = urlparse.urlparse(args.url)
+        result = urllib.parse.urlparse(args.url)
         if not result.scheme:
             console.logerror("invalid url ['{0}']".format(args.url))
             sys.exit(1)

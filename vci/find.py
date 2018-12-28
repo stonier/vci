@@ -17,7 +17,8 @@ Find and fetch the contents of an indexed .repo file.
 import argparse
 import os
 import sys
-import urllib2
+import urllib.error
+import urllib.request
 import yaml
 
 from . import common
@@ -108,11 +109,11 @@ def _create_yaml_from_key(key, index_url):
         try:
             # Note : vcstools.common (underneath wstool) has some interesting
             # functions which let this fall back to handling via netrc
-            response = urllib2.urlopen(url)
+            response = urllib.request.urlopen(url)
             raw_text = response.read()
             yaml_contents = yaml.load(raw_text)
             combined_yaml_contents['repositories'].update(yaml_contents['repositories'])
-        except urllib2.URLError as unused_e:
+        except urllib.error.URLError as unused_e:
             console.logwarn("url not found, skipping [{0}]".format(url))
     return (combined_yaml_contents, name_aliases, urls)
 

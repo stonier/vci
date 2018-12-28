@@ -16,7 +16,8 @@ Configure version control index settings.
 
 import argparse
 import collections
-import urllib2
+import urllib.error
+import urllib.request
 import sys
 import yaml
 
@@ -31,8 +32,8 @@ from . import console
 
 def get(index_url):
     try:
-        response = urllib2.urlopen(index_url)
-    except urllib2.URLError as unused_e:
+        response = urllib.request.urlopen(index_url)
+    except urllib.error.URLError as unused_e:
         raise
     contents = yaml.load(response.read())
     sorted_contents = collections.OrderedDict(sorted(contents.items(), key=lambda x: x[0]))
@@ -44,11 +45,11 @@ def display(index_url, contents=None, no_colour=False):
         contents = get(index_url)
     if no_colour:
         print("\n" + index_url + "\n")
-        for k, v in contents.iteritems():
+        for k, v in contents.items():
             print("    {0}: ".format(k) + "{0}".format(v))
     else:
         print("\n" + console.green + index_url + console.reset + "\n")
-        for k, v in contents.iteritems():
+        for k, v in contents.items():
             print(console.cyan + "    {0}: ".format(k) + console.yellow + "{0}".format(v) + console.reset)
     print("\n")
 
