@@ -35,7 +35,7 @@ def get(index_url):
         response = urllib.request.urlopen(index_url)
     except urllib.error.URLError as unused_e:
         raise
-    contents = yaml.load(response.read())
+    contents = yaml.load(response.read(), Loader=yaml.FullLoader)
     sorted_contents = collections.OrderedDict(sorted(contents.items(), key=lambda x: x[0]))
     return sorted_contents
 
