@@ -4,33 +4,11 @@ from setuptools import find_packages
 from setuptools import setup
 from vci import __version__
 
-# Setup installation dependencies, removing some so they
-# can build on the ppa
-install_requires = [
-    'setuptools',
-    'PyYAML',
-    # 'urllib2', use urllib.request in python3
-]
-
-tests_require=['nose', 'pydot', 'pytest', 'flake8', 'yanc', 'nose-htmloutput']
-
-extras_require = {
-    'test': tests_require,
-    'docs': ["Sphinx", "sphinx-argparse", "sphinx_rtd_theme"],
-    'debs': ['stdeb', 'twine']
-}
-
-if sys.version_info[0] == 2 and sys.version_info[1] <= 6:
-    install_requires.append('argparse')
-
-
 setup(
     name='vci',
     version=__version__,
     packages=find_packages(exclude=['tests*', 'docs*']),
     # check into catkin_tools/ckx_tools for a smarter, but complicated method
-    install_requires=install_requires,
-    extras_require=extras_require,
     author='Daniel Stonier',
     author_email='d.stonier@gmail.com',
     maintainer='Daniel Stonier',

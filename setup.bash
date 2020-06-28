@@ -4,11 +4,12 @@
 # Global Variables
 ##############################################################################
 
-NAME=vci
+PROJECT=vci
+VENV_DIR=${HOME}/.venv/${PROJECT}
 
-##############################################################################
+#############################
 # Colours
-##############################################################################
+#############################
 
 BOLD="\e[1m"
 
@@ -19,9 +20,9 @@ YELLOW="\e[33m"
 
 RESET="\e[0m"
 
-##############################################################################
+#############################
 # Loggers
-##############################################################################
+#############################
 
 padded_message ()
 {
@@ -49,10 +50,11 @@ pretty_error ()
   echo -e "${RED}${1}${RESET}"
 }
 
-##############################################################################
-# Methods
-##############################################################################
+#############################
+# Functions
+#############################
 
+# smart installer that doesn't call sudo if it doesn't need to
 install_package ()
 {
   PACKAGE_NAME=$1
@@ -71,35 +73,81 @@ install_package ()
   return 0
 }
 
-##############################################################################
 
-install_package virtualenvwrapper || return
+#############################
+# Checks
+#############################
 
-# To use the installed python3
-VERSION="--python=/usr/bin/python3"
-# To use a specific version
-# VERSION="--python=python3.6"
-
-# Script for setting up the development environment.
-
-if [ "${VIRTUAL_ENV}" == "" ]; then
-  workon ${NAME}
-  if [ $? -ne 0 ]; then
-    mkvirtualenv ${VERSION} ${NAME}
-  fi
+[[ "${BASH_SOURCE[0]}" != "${0}" ]] && SOURCED=1
+if [ -z "$SOURCED" ]; then
+  pretty_error "This script needs to be sourced, i.e. source './setup.bash', not './setup.bash'"
+  exit 1
 fi
 
-# Get all dependencies for testing, doc generation
-pip install -e .[docs]
-pip install -e .[test]
-pip install -e .[debs]
+#############################
+# System Dependencies
+#############################
 
-# NB: this automagically nabs install_requires
-python setup.py develop
+pretty_header "Deb Dependencies"
 
-echo ""
-echo "Leave the virtual environment with 'deactivate'"
-echo ""
-echo "I'm grooty, you should be too."
-echo ""
+install_package libyaml-dev || return
+install_package python3-dev || return
+install_package python3-venv || return
+
+#############################
+# Virtual Env
+#############################
+
+pretty_header "Virtual Environment"
+if [ -x ${VENV_DIR}/bin/pip3 ]; then
+    pretty_print "  $(padded_message "virtual_environment" "found [${VENV_DIR}]")"
+else
+    python3 -m venv ${VENV_DIR}
+    pretty_warning "  $(padded_message "virtual_environment" "created [${VENV_DIR}]")"
+fi
+
+source ${VENV_DIR}/bin/activate
+
+#############################
+# Pypi Dependencies
+#############################
+
+# approximate ubuntu system dependencies
+
+pretty_header "PyPi Build Dependencies"
+pip3 install "setuptools==45.2"
+pip3 install wheel  # needed to build and install other pip3 dependencies
+
+pretty_header "PyPi Packaging Dependencies"
+pip3 install "stdeb==0.8"
+pip3 install "twine==3.1"
+
+pretty_header "PyPi Doc Dependencies"
+pip3 install "Sphinx==1.8"
+pip3 install "sphinx-argparse==0.2"
+pip3 install "sphinx_rtd_theme==0.4"
+
+pretty_header "PyPi Test Dependencies"
+pip3 install "flake8==3.7"
+pip3 install "yanc==0.3"
+pip3 install "nose-htmloutput==0.6"
+pip3 install "nose==1.3"
+pip3 install "pydot==1.4"
+pip3 install "pytest==4.6"
+
+pretty_header "PyPi Project Dependencies"
+pip3 install "PyYAML==5.3"
+
+#############################
+# Setup Project
+#############################
+
+pretty_header "Setup Development Environment"
+python3 setup.py develop
+
+pretty_print ""
+pretty_print "Leave the virtual environment with 'deactivate'"
+pretty_print ""
+pretty_print "I'm grooty, you should be too."
+pretty_print ""
 

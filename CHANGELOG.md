@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 - ...
 
+## [0.2.5] - 2020-06-27
+### Changed
+- [infra] update yaml calls to avoid deprecated positional args in .load()
+
 ## [0.2.4] - 2018-12-28
 ### Changed
 - [infra] argparse dependency for python3 dropped
