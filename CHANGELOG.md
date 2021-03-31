@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 - ...
 
+
+## [0.2.6] - 2021-03-31
+### Changed
+- [list] bugfix erroneous urllib2 exception type
+- [infra] remove the reverse version dependency in setup.py
+- [infra] update the venv scripts
+
 ## [0.2.5] - 2020-06-27
 ### Changed
 - [infra] update yaml calls to avoid deprecated positional args in .load()

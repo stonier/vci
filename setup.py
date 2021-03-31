@@ -3,6 +3,10 @@ import sys
 from setuptools import find_packages
 from setuptools import setup
 
+extras_require = {
+    'packaging': ['stdeb', 'twine']
+}
+
 setup(
     name='vci',
     version="0.2.6",
@@ -27,6 +31,7 @@ setup(
     license='BSD',
     # test_suite='tests',
     install_requires=["distro", "pyyaml"],
+    extras_require=extras_require,
     entry_points={
         'console_scripts': [
             'vci = vci:main',

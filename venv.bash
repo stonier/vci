@@ -115,7 +115,7 @@ pip3 install wheel
 pip3 install "setuptools==45.2"
 
 # pip3 install -e .[tests]
-# pip3 install -e .[packaging]
+pip3 install -e .[packaging]
 
 # NB: this automagically nabs install_requires
 python3 setup.py develop
