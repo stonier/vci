@@ -116,5 +116,5 @@ simply point vci at it with the `vci config <url>` command.
 For testing and development, run in a virtual env wrapper via:
 
 ```
-source setup.bash
+source venv.bash
 ```

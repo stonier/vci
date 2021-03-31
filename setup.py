@@ -2,11 +2,10 @@
 import sys
 from setuptools import find_packages
 from setuptools import setup
-from vci import __version__
 
 setup(
     name='vci',
-    version=__version__,
+    version="0.2.5",
     packages=find_packages(exclude=['tests*', 'docs*']),
     # check into catkin_tools/ckx_tools for a smarter, but complicated method
     author='Daniel Stonier',
@@ -14,7 +13,7 @@ setup(
     maintainer='Daniel Stonier',
     maintainer_email='d.stonier@gmail.com',
     url='http://github.com/stonier/vci',
-    keywords=['catkin'],
+    keywords=['vcs'],
     classifiers=[
         'Environment :: Console',
         'Intended Audience :: Developers',
@@ -27,6 +26,7 @@ setup(
     long_description="Version control index handling from a yaml file on the internet (e.g. github).",
     license='BSD',
     # test_suite='tests',
+    install_requires=["distro", "pyyaml"],
     entry_points={
         'console_scripts': [
             'vci = vci:main',
