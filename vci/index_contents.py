@@ -65,9 +65,9 @@ def parse_args(args):
     url = config.get_index_url() if args.index is None else args.index
     try:
         contents = get(url)
-    except urllib2.URLError as e:
+    except urllib.error.HTTPError as e:
         print("")
-        console.logerror("could not retrieve " + str(e))
+        console.logerror(f"could not retrieve '{url}' [" + str(e) + "]")
         print("")
         sys.exit(1)
     display(url, contents, args.no_colour)

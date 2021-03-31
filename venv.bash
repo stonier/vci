@@ -1,15 +1,13 @@
 #!/bin/bash
 
-##############################################################################
-# Global Variables
-##############################################################################
 
 PROJECT=vci
-VENV_DIR=${HOME}/.venv/${PROJECT}
+SRC_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+VENV_DIR=${SRC_DIR}/.venv
 
-#############################
+##############################################################################
 # Colours
-#############################
+##############################################################################
 
 BOLD="\e[1m"
 
@@ -19,10 +17,6 @@ RED="\e[31m"
 YELLOW="\e[33m"
 
 RESET="\e[0m"
-
-#############################
-# Loggers
-#############################
 
 padded_message ()
 {
@@ -50,11 +44,10 @@ pretty_error ()
   echo -e "${RED}${1}${RESET}"
 }
 
-#############################
-# Functions
-#############################
+##############################################################################
+# Methods
+##############################################################################
 
-# smart installer that doesn't call sudo if it doesn't need to
 install_package ()
 {
   PACKAGE_NAME=$1
@@ -73,6 +66,7 @@ install_package ()
   return 0
 }
 
+##############################################################################
 
 #############################
 # Checks
@@ -88,9 +82,7 @@ fi
 # System Dependencies
 #############################
 
-pretty_header "Deb Dependencies"
-
-install_package libyaml-dev || return
+pretty_header "System Dependencies"
 install_package python3-dev || return
 install_package python3-venv || return
 
@@ -99,6 +91,7 @@ install_package python3-venv || return
 #############################
 
 pretty_header "Virtual Environment"
+
 if [ -x ${VENV_DIR}/bin/pip3 ]; then
     pretty_print "  $(padded_message "virtual_environment" "found [${VENV_DIR}]")"
 else
@@ -112,42 +105,17 @@ source ${VENV_DIR}/bin/activate
 # Pypi Dependencies
 #############################
 
-# approximate ubuntu system dependencies
+pretty_header "PyPi Dependencies"
 
-pretty_header "PyPi Build Dependencies"
+# upgrade pip3
+python3 -m pip install -U pip
+
+# build environment depedencies
+pip3 install wheel
 pip3 install "setuptools==45.2"
-pip3 install wheel  # needed to build and install other pip3 dependencies
 
-pretty_header "PyPi Packaging Dependencies"
-pip3 install "stdeb==0.8"
-pip3 install "twine==3.1"
+# pip3 install -e .[tests]
+# pip3 install -e .[packaging]
 
-pretty_header "PyPi Doc Dependencies"
-pip3 install "Sphinx==1.8"
-pip3 install "sphinx-argparse==0.2"
-pip3 install "sphinx_rtd_theme==0.4"
-
-pretty_header "PyPi Test Dependencies"
-pip3 install "flake8==3.7"
-pip3 install "yanc==0.3"
-pip3 install "nose-htmloutput==0.6"
-pip3 install "nose==1.3"
-pip3 install "pydot==1.4"
-pip3 install "pytest==4.6"
-
-pretty_header "PyPi Project Dependencies"
-pip3 install "PyYAML==5.3"
-
-#############################
-# Setup Project
-#############################
-
-pretty_header "Setup Development Environment"
+# NB: this automagically nabs install_requires
 python3 setup.py develop
-
-pretty_print ""
-pretty_print "Leave the virtual environment with 'deactivate'"
-pretty_print ""
-pretty_print "I'm grooty, you should be too."
-pretty_print ""
-
