@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='vci',
-    version="0.2.5",
+    version="0.2.6",
     packages=find_packages(exclude=['tests*', 'docs*']),
     # check into catkin_tools/ckx_tools for a smarter, but complicated method
     author='Daniel Stonier',
