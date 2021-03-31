@@ -111,7 +111,11 @@ def _create_yaml_from_key(key, index_url):
             # functions which let this fall back to handling via netrc
             response = urllib.request.urlopen(url)
             raw_text = response.read()
-            yaml_contents = yaml.load(raw_text, Loader=yaml.FullLoader)
+            try:
+                # YAML >= v5.1
+                yaml_contents = yaml.load(raw_text, Loader=yaml.FullLoader)
+            except AttributeError:
+                yaml_contents = yaml.load(raw_text, Loader=yaml.Loader)
             combined_yaml_contents['repositories'].update(yaml_contents['repositories'])
         except urllib.error.URLError as unused_e:
             console.logwarn("url not found, skipping [{0}]".format(url))

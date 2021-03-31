@@ -9,9 +9,8 @@ extras_require = {
 
 setup(
     name='vci',
-    version="0.2.6",
+    version="0.2.7",
     packages=find_packages(exclude=['tests*', 'docs*']),
-    # check into catkin_tools/ckx_tools for a smarter, but complicated method
     author='Daniel Stonier',
     author_email='d.stonier@gmail.com',
     maintainer='Daniel Stonier',
