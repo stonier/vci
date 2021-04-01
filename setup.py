@@ -9,7 +9,7 @@ extras_require = {
 
 setup(
     name='vci',
-    version="0.2.7",
+    version="0.2.8",
     packages=find_packages(exclude=['tests*', 'docs*']),
     author='Daniel Stonier',
     author_email='d.stonier@gmail.com',
